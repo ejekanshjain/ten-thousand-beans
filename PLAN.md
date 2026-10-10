@@ -26,7 +26,7 @@ Accepted, with the numbers now used in this plan:
 - **A learnable slosh.** The surface rocks at 1.1 swings a second with damping ratio 0.2. Keys turn the pot at 30°/s (rising to 75°/s while held since M27) and the angle holds on release, with a 4°/s auto-level. Every character hit has a visible side and an arrow. The low rim glows as it nears the spill line.
 - **Drops warn first.** The tweezers tremble and creak past 70% strain, the held bean tints red, and the drop caption names the cause. The pot mouth highlights while you carry.
 - **Faster regrowing.** A slot takes up to 3 packets. Holes stay dug after harvest. Each harvest has a small gag.
-- **Skill pays.** The clean bonus pays in full at 5 spilled beans or fewer and half at 25 or fewer. Each dodged telegraphed event pays 5 coins with a caption (2 until M26).
+- **Skill pays.** The clean bonus pays in full at 5 spilled beans or fewer and half at 25 or fewer. Each dodged telegraphed event pays 15 coins with a caption (2 until M26, 5 until the coin boost).
 - **A measured pacing model.** The table now has desktop and phone columns and a tip-over row. Pickup times get measured after M3. Parks allow 3 pigeons at once, and one shoo scatters the flock.
 - **Lessons spread across the route.** Street: neighbours, cyclists, drains and gossip. Market: puddles and the drying rack. Park: pigeons and the window box. Hill: rain and Pour Off. The street shower is gone.
 - **The lid holds most hits but can fail big.** With the lid on, a character hit throws a quarter of its splash (at least 1 bean). The ladder and the ambushes launch it with a clang and a full spill unless you lean against them, and you fetch it from where it lands. It always lands where the pot can reach it, even at a shut gate. A tip-over launches it too, but scatters half the loose beans (audit round).
@@ -84,7 +84,7 @@ Rejected or changed:
 - **2:45 Under the fridge.** The cat wiggles its bum for 1s, then bats one bean under the fridge. A bent coat hanger appears, and you fish it out.
 - **3:30 The hall rug.** A curled rug edge gives a small bump. Hurrying over it spills up to about 40 beans, depending on where the sway is in its swing: "Hurried over the rug. 9 beans."
 - **4:30 Out the front door.** "Kitchen clear." You walk out to the street corner.
-- **5:00 First kiosk.** The editor of The Weekly Whisper buys "THE CAT KNOWS" for 19 coins. A careful kitchen also pays a clean bonus.
+- **5:00 First kiosk.** The editor of The Weekly Whisper buys "THE CAT KNOWS" for 126 coins. A careful kitchen also pays a clean bonus.
 
 ### The Middle
 
@@ -156,7 +156,7 @@ Desktop landscape (1280 x 800):
 ```text
 +-----------+--------------------------------+-----------+
 | LEFT 240  | canvas cell 800 x 800          | RIGHT 240 |
-| Market    | design 600 x 800 at scale 1.0  | 45 coins  |
+| Market    | design 600 x 800 at scale 1.0  | 135 coins |
 | Pot 9,874 | extra 100 px each side shows   | Timers    |
 | Behind 37 | more street                    | Set Down  |
 | Lost 4    |                                | Window    |
@@ -326,7 +326,7 @@ Worked numbers with a full pot (`m = 9`), before the 90 beans/s cap:
 
 ### Hazards and Events
 
-Terrain kicks scale with `(v / 80)²`, so hurrying over a pothole is 4.5 times worse than strolling. Character kicks are fixed, telegraphed and come from a visible side with an arrow. Stopping or timing avoids them, and a counter-tilt into the kick halves the spill. Each dodged telegraphed event pays 2 coins with a caption such as "Not today, ladder man.".
+Terrain kicks scale with `(v / 80)²`, so hurrying over a pothole is 4.5 times worse than strolling. Character kicks are fixed, telegraphed and come from a visible side with an arrow. Stopping or timing avoids them, and a counter-tilt into the kick halves the spill. Each dodged telegraphed event pays 15 coins with a caption such as "Not today, ladder man.".
 
 | Hazard        | Side        | sigma kick (rad/s)         | psi kick                                          | Telegraph and counter                                                                                                      |
 | ------------- | ----------- | -------------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -366,7 +366,7 @@ M27 gave the street, market and park one hard encounter each (Lead Decisions), i
 - They reach the walking line within **120 u** of their spot. They burst out once the pot's centre is **60 u** inside that reach, so the stop that dodges everyone else leaves you in it.
 - An early tell starts 400 u before that: Mrs Pryce's curtain twitches with two eyes behind it, the stall puts up a SALE! sign, Bruno snores "Zzz". No caption names it.
 - The shout comes with a caption naming the escape ("She grabs anyone near her gate. Hurry past! Hold Shift with W.") and a prompt. They come out to a spot just ahead of the pot, so you see them coming, and the arrow over the pot shows which way the beans would go.
-- After **1.6s** they lunge. A pot still in reach takes a hit with a 3.2 rad/s kick, a 16° tilt and at least 70 beans, or the next gossip line's need plus 8. Leaning against it halves it, like every character hit. A pot out of reach earns a 5-coin dodge with its own lines and score ("Bruno: 0. You: 1."). From the shout until the lunge lands, Set Down is refused with "No time! Hurry past!", so dropping the pot is no escape (second audit round).
+- After **1.6s** they lunge. A pot still in reach takes a hit with a 3.2 rad/s kick, a 16° tilt and at least 70 beans, or the next gossip line's need plus 8. Leaning against it halves it, like every character hit. A pot out of reach earns a 15-coin dodge with its own lines and score ("Bruno: 0. You: 1."). From the shout until the lunge lands, Set Down is refused with "No time! Hurry past!", so dropping the pot is no escape (second audit round).
 - Hurrying from the shout covers about 230 u in 1.6s and gets you clear. A stroll covers 128 u and doesn't. Unit tests check that a hurry 0.4s after the shout makes it and one 0.8s after doesn't. Hurrying costs a few beans of its own, so it is a trade.
 - Bots don't know the trick, like a first-time player: careful bots always get hit and find exactly 3 pages, and average bots only escape when a random hurry happens to be on.
 
@@ -490,20 +490,20 @@ Each stretch's Pickup has one twist, so the 500th bean doesn't feel like the 5th
 
 | Queue | Line                   | Letters | Funny rank | Price |
 | ----- | ---------------------- | ------- | ---------- | ----- |
-| 1     | THE CAT KNOWS          | 11      | 10         | 42    |
-| 2     | MAYOR WEARS A WIG      | 14      | 9          | 46    |
-| 3     | CHOIR MIMES            | 10      | 1          | 78    |
-| 4     | VICAR CHEATS AT BINGO  | 18      | 4          | 66    |
-| 5     | LIFEGUARD CAN'T SWIM   | 17      | 2          | 74    |
-| 6     | MILKMAN HATES MILK     | 16      | 11         | 38    |
-| 7     | BAKER BUYS BREAD       | 14      | 7          | 54    |
-| 8     | BUTCHER IS VEGAN       | 14      | 3          | 70    |
-| 9     | POSTMAN FEARS SNAILS   | 18      | 8          | 50    |
-| 10    | DR LUND SINGS TO LEEKS | 17      | 6          | 58    |
-| 11    | WEATHERMAN GUESSES     | 17      | 5          | 62    |
-| 12    | JUDGE LOVES CATS       | 14      | 12         | 34    |
+| 1     | THE CAT KNOWS          | 11      | 10         | 126   |
+| 2     | MAYOR WEARS A WIG      | 14      | 9          | 138   |
+| 3     | CHOIR MIMES            | 10      | 1          | 234   |
+| 4     | VICAR CHEATS AT BINGO  | 18      | 4          | 198   |
+| 5     | LIFEGUARD CAN'T SWIM   | 17      | 2          | 222   |
+| 6     | MILKMAN HATES MILK     | 16      | 11         | 114   |
+| 7     | BAKER BUYS BREAD       | 14      | 7          | 162   |
+| 8     | BUTCHER IS VEGAN       | 14      | 3          | 210   |
+| 9     | POSTMAN FEARS SNAILS   | 18      | 8          | 150   |
+| 10    | DR LUND SINGS TO LEEKS | 17      | 6          | 174   |
+| 11    | WEATHERMAN GUESSES     | 17      | 5          | 186   |
+| 12    | JUDGE LOVES CATS       | 14      | 12         | 102   |
 
-Price is `30 + 4 * (13 - rank)` since M26 (it was `15 + 2 * (13 - rank)`), so pages pay 34 to 78 and all 12 pay 672 coins. Exact needs from the font, in queue order: 56, 67, 47, 89, 81, 73, 72, 72, 88, 90, 91 and 73 beans (57 to 106 before M27).
+Price is `90 + 12 * (13 - rank)` since the coin boost (`30 + 4 * (13 - rank)` from M26, `15 + 2 * (13 - rank)` before), so pages pay 102 to 234 and all 12 pay 2,016 coins. Exact needs from the font, in queue order: 56, 67, 47, 89, 81, 73, 72, 72, 88, 90, 91 and 73 beans (57 to 106 before M27).
 
 ### Rain
 
@@ -531,12 +531,12 @@ Price is `30 + 4 * (13 - rank)` since M26 (it was `15 + 2 * (13 - rank)`), so pa
 
 ### Coins and Upgrades
 
-- Clean bonus per stretch: kitchen 20, street 30, market 40, park 40, hill 50, bridge 60, Grandma's Door 30. Full pay at 5 spilled beans or fewer, half at 25 or fewer. The door has no kiosk, so Grandma pays its bonus when she starts counting ("Not a bean on her steps."), and the ending lists Clean Stretches and the coins you finished with.
+- Clean bonus per stretch: kitchen 60, street 90, market 120, park 120, hill 150, bridge 180, Grandma's Door 90. Full pay at 5 spilled beans or fewer, half at 25 or fewer. The door has no kiosk, so Grandma pays its bonus when she starts counting ("Not a bean on her steps."), and the ending lists Clean Stretches and the coins you finished with.
 - The shop disables Grippy Shoes once no wet grass lies ahead and the Pigeon Net once no birds do, with the reason under the row ("No wet grass ahead. The park's behind you.").
-- Each dodged telegraphed event pays 5 coins (2 until M26): the door cat, each neighbour, cyclist, shopper, stall spoon and the ladder so far. Characters you can pass more than once (the cat, the spoons, the ladder) pay once, for the first forward pass, so walking back and forth can't farm coins.
+- Each dodged telegraphed event pays 15 coins (2 until M26, 5 until the coin boost): the door cat, each neighbour, cyclist, shopper, stall spoon and the ladder so far. Characters you can pass more than once (the cat, the spoons, the ladder) pay once, for the first forward pass, so walking back and forth can't farm coins.
 - Walking off a cleared stretch opens the kiosk (M10), which pays the clean bonus at once. Beans that left the pot on the stretch count, except the cat's opening bean. Pages sell there for their table price, one Sell button each, and the shop lists only the upgrades whose milestone has made them work.
-- Gossip sales pay 34 to 78 coins a page (17 to 39 until M26).
-- The first plan had an average player earn about 340: 230 from 9 pages, 55 from dodges and 55 from bonuses. M26's bots showed that can't happen (section 5), so dodges and pages pay more. Measured over 20 seeded runs from the kitchen to the bridge: the average bot earns about 248 (about 3 pages, 12 dodges and a few half bonuses), the keyboard bot about 272, the careful bot about 281 (no pages, 19 dodges, most bonuses) and the sloppy bot about 279 (about 4 pages, 7 dodges). The four cheapest upgrades cost 235 and all six cost 415, so each kind of player buys four, and the luckier ones five. Unlucky runs fall short: the poorest average run of the 20 earned 136.
+- Gossip sales pay 102 to 234 coins a page (34 to 78 until the coin boost, 17 to 39 until M26).
+- The first plan had an average player earn about 340: 230 from 9 pages, 55 from dodges and 55 from bonuses. M26's bots showed that can't happen (section 5), so dodges and pages pay more. M26 measured, at its pay, over 20 seeded runs from the kitchen to the bridge: the average bot earns about 248 (about 3 pages, 12 dodges and a few half bonuses), the keyboard bot about 272, the careful bot about 281 (no pages, 19 dodges, most bonuses) and the sloppy bot about 279 (about 4 pages, 7 dodges). Then the four cheapest upgrades cost 235 and all six cost 415, so each kind of player bought four, and the luckier ones five. The poorest average run of the 20 earned 136. Upgrades now cost 720 in all (Lead Decisions), and all coin income is tripled (Coin Boost Decision). An average run now earns about 1,650 and a careful run about 1,260, so you can buy all six.
 
 | Upgrade           | Cost | Helps                                           | New chore or downside                                                                                                  |
 | ----------------- | ---- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -602,8 +602,8 @@ Every line of the Game 2 section of `DESIGN.md`:
 | Wind on the hill and the bridge                                     | Telegraphed gusts with drift and push                                   | M18, M19      |
 | Rain slowly overfills the pot                                       | Water level lowers the margin; Pour Off                                 | M18           |
 | A cyclist rings their bell right behind you                         | Bell telegraph, startle when walking                                    | M9            |
-| Coins: bonus for each stretch with no spills                        | Tiered clean bonus 20 to 60                                             | M10           |
-| Coins: gossip pages sold to the newspaper                           | Kiosk sale prices 34 to 78                                              | M10           |
+| Coins: bonus for each stretch with no spills                        | Tiered clean bonus 60 to 180                                            | M10           |
+| Coins: gossip pages sold to the newspaper                           | Kiosk sale prices 102 to 234                                            | M10           |
 | Upgrade: Pot lid stops big spills; rattles and beans hop out        | Rate cap 6/s; hits throw a quarter, tips scatter half; rattle pops on kicks; launched by the ladder and ambushes | M16, audit    |
 | Upgrade: Grippy shoes, less slipping; clean mud after the park      | Longer save window; mud chore for owners                                | M16           |
 | Upgrade: Wider tweezers pick faster but drop more beans             | Bigger grab and clumps; lower strain limit                              | M16           |
@@ -753,7 +753,7 @@ M27 built the Lead Decisions: the rising key speed, `REPOSE` 9, gossip letters t
 
 - The average run went from 45 to 70 min on a desktop and from 50 to 80 on a phone. On a desktop, `REPOSE` 9 added 2.8 min, and the doubled characters, the ambushes and the longer stretches added about 22. The sparser gossip letters took 0.6 off, since big hits now throw fewer beans.
 - Pages: the average bot finds 7.3 a run (4 at least), the sloppy one 8.35 and the keyboard one 6.65. The careful bot finds exactly 3, one from each ambush. Average bots still find none on the bridge, where gusts spill in small handfuls and the river takes 30%.
-- Coins: the average run earns 537 (414 at least). Dodges paid twice as often with twice the characters. The lead then raised the six upgrades from 415 to 720 coins in all (see Lead Decisions), so most players buy four or five.
+- Coins: the average run earns 537 (414 at least). Dodges paid twice as often with twice the characters. The lead then raised the six upgrades from 415 to 720 coins in all (see Lead Decisions), so most players bought four or five. The Coin Boost Decision then tripled all coin income, so an average run now earns about 1,650 and buys all six.
 - Keys: with the rising key speed the keyboard bot spills 271 on the hill against the tilting bot's 254, so the hill gap is closed. On the bridge it still spills 251 against 173. Before the leftover-water prompt it was 321, because the longer hill sent more rain water onto the bridge and the old prompt only asked from 3 u.
 - Careful players spill about 90 beans at each ambush and little else, so their run is 44 min, mostly walking and chores.
 - A bot that never pours the rain off floods the pot on the 6,000 u hill: beans float out faster than it picks them up, and it is still short of the kiosk after 15 min. The prompt asks from 3 u of water, and the average bot pours at 5.5 u.
@@ -895,7 +895,7 @@ Each milestone adds its own rows; M24 audited the whole table and filled the gap
 | Tip-over teeter       | `creak` and `rattle` (M24 added `creak`) | Pot balances on an edge                                    | M2           |
 | Gate blocked          | `buzz`                                 | Gate wobble, arrow                                           | M2           |
 | Kicks                 | `thud`; `whoosh` for ladder and ball   | Shake by kick size, side arrow in the warning; every ground kick buzzes (8 ms per cobble, 15 ms small, 30 ms big), character hits 30 ms | M5 onward, M24 |
-| Dodged event          | `coin`                                 | Caption and +2 float                                         | M9           |
+| Dodged event          | `coin`                                 | Caption and +15 float                                        | M9           |
 | Cat, dog, pigeon      | `meow`, `bark`, `coo`                  | Character pop-in; "WOOF!", "SWAT!", "DING!" and "Atchoo!" bounce (M24) | M6, M13, M15 |
 | Cyclist               | `bell`, then `whoosh`                  | Speed lines                                                  | M9           |
 | Rain and wind         | `rain` and `wind` loops by intensity   | Rain lines, leaves                                           | M18          |
@@ -1130,7 +1130,7 @@ Tests sit next to their files and cover game logic only:
 | `hanger.test.ts`      | Catch radius 10 u; a slow lift keeps the bean; a jolt or wall scrape drops it; reaching the top makes a loose bean; snags                                                                                                                                                                                                                                                                                                                                        |
 | `windowBox.test.ts`   | Packet capacity 8; 3 packets per slot; dig needs 6 strokes and stays dug; over-watering floods; one timer per batch; harvest goes to the pot when it is on the ground; 6 slots with the bigger box                                                                                                                                                                                                                                                               |
 | `gossip.test.ts`      | Stroke counts per line (45 to 95); trigger picks the first line that fits; a missed kitchen line spells last on later stretches; queue order and carry-over; first-line lock, wiggle then scramble; the dev Pick Up All forgets an unjotted line; secret reveal counts                                                                                                                                                                                                                                                                                                          |
-| `economy.test.ts`     | Bonus tiers; dodge pay; prices total 672; buying each upgrade adds its chore or flag; chores block `leave-stretch` and `count`                                                                                                                                                                                                                                                                                                                                   |
+| `economy.test.ts`     | Bonus tiers; dodge pay; prices total 2,016; buying each upgrade adds its chore or flag; chores block `leave-stretch` and `count`                                                                                                                                                                                                                                                                                                                                   |
 | `events.test.ts`      | Each event's telegraph comes before its active window; stopping avoids neighbour, cyclist, crowd and dog kicks; the ladder hit window is 1.4s of 4s                                                                                                                                                                                                                                                                                                              |
 | `ending.test.ts`      | A dodge hides exactly one bean; a missed dodge tips and still hides one; the count curve is monotonic, holds at the shortfall and stops at 9,999; a harvest during the dustpan pickup still opens the count; the doormat move makes 10,000; the windowsill caption names the packets, even when harvested beans arrive at once; a clean walk pays the door's bonus                                                                                                                                                                                                                       |
 | `balance.test.ts`     | Every bot reaches Grandma; the average bot spills each stretch's section 5 budget within 25%; the sloppy bot spills 1.5 to 2.2 times as much; a careful bot spills only its three ambushes to the park and under 60 in the wind; every kind of player earns the four cheapest upgrades; the average run finds 7 to 9 pages, the sloppy one more and the careful one at least 3; an average run lasts 65 to 120 min on a desktop and a phone (`runMinutes`); about half the average bots tip at the door; hurry spills more than stroll on an empty street; the river keeps about 30% on the bridge; pouring off helps on the hill; walking blind costs each character stretch its big hits; the same seed replays the same run |
@@ -1372,7 +1372,7 @@ Ekansh delegated every design, tuning and balance decision to the lead and is no
 - **Run length:** the bots' 45 to 50 min is under the 60 to 120 min target. Build all of these: double the characters on the street, market and park as measured (about +6 to 8 min); spill slightly sooner (about +3 to 4 min); and make each of the seven stretches longer to walk until the bot average reaches at least 65 min. Keep exactly seven stretches, as the design says.
 - **Gossip:** an average run should find 7 to 9 pages and a careful run at least 3. Guarantee one gossip spill on each of the street, market and park stretches from a scripted character encounter that is hard but possible to dodge, and lower the bean threshold for a spill to spell gossip.
 - **Round 8 economy changes** (page prices, dodge pay, the secret reveal): approved as built.
-- **Upgrade prices (final check, 2026-10-10):** raised from 415 to 720 coins in all (Wider Tweezers 70, Grippy Shoes 80, Pigeon Net 90, Bigger Window Box 120, Pot Lid 160, Taller Pot 200). Reason: over 20 seeds the bots earn about 420 (careful), 550 (average and keyboard) and 570 (sloppy), so at 415 everyone bought everything and no upgrade was a choice. At 720 nobody average affords all six, and every bot still affords the four cheapest (360).
+- **Upgrade prices (final check, 2026-10-10):** raised from 415 to 720 coins in all (Wider Tweezers 70, Grippy Shoes 80, Pigeon Net 90, Bigger Window Box 120, Pot Lid 160, Taller Pot 200). Reason: over 20 seeds the bots earn about 420 (careful), 550 (average and keyboard) and 570 (sloppy), so at 415 everyone bought everything and no upgrade was a choice. At 720 nobody average affords all six, and every bot still affords the four cheapest (360). The Coin Boost Decision below supersedes this: income is tripled, so an average run now affords all six.
 
 Calls the round 12 builder made while building these, each with its reason:
 
@@ -1398,6 +1398,16 @@ Calls the second audit round builder made, each with its reason:
 - **Grandma pays the door's clean bonus as a tip when she starts counting.** The ending lists Clean Stretches and the coins you finished with, so the clean walk up her path counts for something. The bonus tiers (full at 5 spilled beans or fewer, half at 25) stay as built; `DESIGN.md`'s Coins says "no spills" and needs the lead's update.
 - **Clumps, scoops, packets of 8 and the short bookends stay.** These are recorded departures (above) waiting on the lead's `DESIGN.md` update, which a game builder can't make. The bots still put the average desktop run at 70 min and a careful one at 44 min after this round; real timed runs stay an Owner Follow-Up.
 
+## Coin Boost Decision (2026-10-10)
+
+All coin income is tripled, so upgrades come about 3 times sooner and the game feels faster. The new values, with the old ones in parentheses:
+
+- **Dodge pay:** 15 coins for each telegraphed hit dodged (5).
+- **Clean bonus:** kitchen 60 (20), street 90 (30), market 120 (40), park 120 (40), hill 150 (50), bridge 180 (60) and Grandma's Door 90 (30). The tiers stay: full at 5 spilled beans or fewer, half at 25 or fewer.
+- **Gossip pages:** `90 + 12 * (13 - rank)` (`30 + 4 * (13 - rank)`), so pages pay 102 to 234 (34 to 78) and all twelve pay 2,016 (672).
+
+Upgrade prices are unchanged at 720 coins in all. An average run now earns about 1,650 and a careful run about 1,260, so an average run buys all six upgrades. The milestone entries above record the old amounts as they were then.
+
 ## Owner Follow-Ups
 
 These need a real phone or a real player. They do not block any milestone. The game ships with the current best-guess numbers.
@@ -1406,5 +1416,5 @@ These need a real phone or a real player. They do not block any milestone. The g
 - Try the shipped key speed with real hands. Keyboard players still spill about 45% more than tilting players on the bridge.
 - Try the three ambushes on a real phone: whether the shout gives enough time to slide the thumb right, and whether the twitching curtain, the SALE! sign and Bruno's snore read as warnings.
 - Judge the gossip letters on a real small phone: they sit further apart since M27, over a pale glow.
-- Watch the economy in a real run: the average bot earns about 550 coins against 720 for every upgrade.
+- Watch the economy in a real run: the average bot earns about 1,650 coins against 720 for every upgrade.
 - Original milestone text, kept for reference: M27: Real-Player Timing - Ekansh times real 50-bean pickups on a desktop and a phone with **Time 50 Beans**, and plays two full manual runs (one careful, one sloppy), reading the **Run Report** at the end of each (section 5, "How to Run M27"); the pacing table takes the real seconds per bean, walking minutes and pickup share; Ekansh decides how to reach the 1 to 2 hour goal if the average lands under 60 min (section 5 lists the levers), and the chosen lever is built and checked with the bots; Ekansh tries the key speeds with **Key Speed** and picks one, and the next builder makes it the game's own and reruns the balance tests.

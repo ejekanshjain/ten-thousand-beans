@@ -255,8 +255,8 @@ export const CAP_RATE = 6
 
 /** Leaning the pot this many degrees against a hit, as it lands, halves its splash and kick. */
 export const LEAN_SAVE = 5
-/** Coins for each telegraphed hit you dodge. M26 raised it from 2 so careful players can buy four upgrades. */
-export const DODGE_COINS = 5
+/** Coins for each telegraphed hit you dodge. Tripled from 5 so upgrades come sooner. */
+export const DODGE_COINS = 15
 /** Walking slower than this (u/s) counts as stopped for characters: neighbours peek, bikes don't startle. */
 export const STILL_SPEED = 20
 
@@ -659,13 +659,13 @@ export const GOSSIP_MARGIN = 8
  * kiosk pays it after each stretch, and Grandma pays the door's when she starts counting.
  */
 export const CLEAN_BONUS = {
-  kitchen: 20,
-  street: 30,
-  market: 40,
-  park: 40,
-  hill: 50,
-  bridge: 60,
-  door: 30
+  kitchen: 60,
+  street: 90,
+  market: 120,
+  park: 120,
+  hill: 150,
+  bridge: 180,
+  door: 90
 } as const
 /** Spill this many beans or fewer on a stretch for the full clean bonus. */
 export const CLEAN_FULL = 5
@@ -673,11 +673,11 @@ export const CLEAN_FULL = 5
 export const CLEAN_HALF = 25
 /**
  * The Weekly Whisper pays PAGE_PRICE_BASE + PAGE_PRICE_STEP * (13 - rank) for a page, so
- * the funniest (rank 1) pays 78 and the dullest 34. M26 doubled them: an average run
- * finds about 3 pages, not the 9 first planned, and still buys four upgrades.
+ * the funniest (rank 1) pays 234 and the dullest 102. Tripled from 30 and 4 so an
+ * average run of about 3 pages buys upgrades sooner.
  */
-export const PAGE_PRICE_BASE = 30
-export const PAGE_PRICE_STEP = 4
+export const PAGE_PRICE_BASE = 90
+export const PAGE_PRICE_STEP = 12
 /** Pages p reveal round(20 * (p / 12) ^ SECRET_CURVE) of the secret's letters. Under 1, the first pages reveal the most. */
 export const SECRET_CURVE = 0.6
 /** How long the editor's speech bubble stays up, in ms. */

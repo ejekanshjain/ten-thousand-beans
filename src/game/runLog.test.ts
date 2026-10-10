@@ -69,10 +69,10 @@ describe('the run log', () => {
     devGiveGossip(game, 1)
     expect(sellPage(game, 0)).toBe(true)
     const { coins } = runReport(game, Date.now())
-    expect(coins.dodges).toBe(5)
-    expect(coins.bonuses).toBe(30)
-    expect(coins.pages).toBe(42)
-    expect(coins.left).toBe(77)
+    expect(coins.dodges).toBe(15)
+    expect(coins.bonuses).toBe(90)
+    expect(coins.pages).toBe(126)
+    expect(coins.left).toBe(231)
   })
 
   it('times the doorstep replay by play, not by time spent in menus', () => {

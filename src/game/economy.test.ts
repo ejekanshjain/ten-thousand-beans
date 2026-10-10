@@ -20,22 +20,22 @@ function atStretchEnd(index: number, spilled = 0): Game {
 
 describe('coins', () => {
   it('pay the clean bonus in full up to 5 beans, half up to 25, then nothing', () => {
-    expect(cleanBonus('street', 0)).toBe(30)
-    expect(cleanBonus('street', 5)).toBe(30)
-    expect(cleanBonus('street', 6)).toBe(15)
-    expect(cleanBonus('street', 25)).toBe(15)
+    expect(cleanBonus('street', 0)).toBe(90)
+    expect(cleanBonus('street', 5)).toBe(90)
+    expect(cleanBonus('street', 6)).toBe(45)
+    expect(cleanBonus('street', 25)).toBe(45)
     expect(cleanBonus('street', 26)).toBe(0)
-    expect(cleanBonus('kitchen', 3)).toBe(20)
-    expect(cleanBonus('bridge', 10)).toBe(30)
-    expect(cleanBonus('door', 0)).toBe(30)
-    expect(Object.values(CLEAN_BONUS)).toEqual([20, 30, 40, 40, 50, 60, 30])
+    expect(cleanBonus('kitchen', 3)).toBe(60)
+    expect(cleanBonus('bridge', 10)).toBe(90)
+    expect(cleanBonus('door', 0)).toBe(90)
+    expect(Object.values(CLEAN_BONUS)).toEqual([60, 90, 120, 120, 150, 180, 90])
   })
 
-  it('price the twelve gossip pages at 672 coins and the six upgrades at 720', () => {
-    expect(LINES.reduce((sum, line) => sum + line.price, 0)).toBe(672)
+  it('price the twelve gossip pages at 2016 coins and the six upgrades at 720', () => {
+    expect(LINES.reduce((sum, line) => sum + line.price, 0)).toBe(2016)
     // The funniest page pays the most, from 34 to 78.
-    expect(LINES.map(line => line.price).sort((a, b) => a - b)[0]).toBe(34)
-    expect(LINES.find(line => line.rank === 1)?.price).toBe(78)
+    expect(LINES.map(line => line.price).sort((a, b) => a - b)[0]).toBe(102)
+    expect(LINES.find(line => line.rank === 1)?.price).toBe(234)
     expect(UPGRADES.reduce((sum, u) => sum + u.cost, 0)).toBe(720)
   })
 })
@@ -45,13 +45,13 @@ describe('the kiosk', () => {
     const game = atStretchEnd(1, 4)
     simulate(game, 3, input => void (input.walk.walk = 1))
     expect(game.scene).toBe('kiosk')
-    expect(game.wallet.coins()).toBe(30)
+    expect(game.wallet.coins()).toBe(90)
     expect(game.kiosk?.summary).toEqual({
       cleared: 'The Street',
       next: 'The Market',
       spilled: 4,
-      bonus: 30,
-      full: 30
+      bonus: 90,
+      full: 90
     })
   })
 

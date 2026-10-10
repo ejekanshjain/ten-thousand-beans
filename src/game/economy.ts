@@ -8,9 +8,8 @@ export interface BeanUpgrade extends UpgradeDef {
 }
 
 /**
- * The six upgrades and their downsides. They cost 720 coins in all, more than an average
- * run earns (about 550), so you pick about four or five. A careful run (about 420) still
- * affords the four cheapest.
+ * The six upgrades and their downsides. They cost 720 coins in all. An average run earns
+ * about 1650 and a careful run about 1260, so you can buy all six.
  */
 export const UPGRADES: readonly BeanUpgrade[] = [
   {
