@@ -65,6 +65,7 @@ Only in dev builds (`import.meta.env.DEV`):
 
 - `?fast` in the URL shrinks every real-time wait to 3 seconds, through the shared wait helper.
 - `?debug` draws physics bodies and extra overlays.
+- `?ending` skips the start screen and opens Grandma's count at the door, with every gossip page found.
 - The backquote key toggles a dev panel with cheats such as adding coins or jumping to a scene.
 - `window.__game` exposes a small scripting API so a browser automation tool can inspect state and drive the game.
 

@@ -24,6 +24,7 @@ import {
   devTeeter
 } from './game/game'
 import { devCount, devDoorDog } from './game/door'
+import { LINES } from './game/gossip'
 import { devGiveGossip } from './game/gossipFlow'
 import { devFeet, devLadder, devShopper, devSpoon } from './game/market'
 import { checkPackets, loseBeans, packetLabel } from './game/packets'
@@ -561,6 +562,13 @@ export function installDev(runtime: Runtime): DevTools {
       }
     },
     toClient
+  }
+
+  // `?ending` skips the start screen and opens Grandma's count with every gossip page found.
+  if (new URLSearchParams(location.search).has('ending')) {
+    api.start()
+    api.giveGossip(LINES.length)
+    api.count()
   }
 
   const unexpose = exposeDev('beans', api)
