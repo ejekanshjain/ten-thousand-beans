@@ -1,0 +1,50 @@
+@import './shared/styles.css';
+@source '.';
+
+/* Rails beside the canvas on wide landscape screens, bars above and below it otherwise. */
+@custom-variant wide (@media (orientation: landscape) and (min-width: 900px));
+/* Short portrait screens, such as an iPhone SE, where every pixel of the bars counts. */
+@custom-variant short (@media (orientation: portrait) and (max-height: 700px));
+/* A phone turned sideways: too short for the game, so a note asks you to turn it back. */
+@custom-variant sideways (@media (orientation: landscape) and (max-height: 500px));
+
+/* A button that wants you: a wobble every 1.6s, such as Box when packets wait. */
+@theme {
+  --animate-nudge: nudge 1.6s ease-in-out infinite;
+  /* The corner Replay chip pops in, then fades out over its 4s. */
+  --animate-chip: chip 4s ease-in-out forwards;
+
+  @keyframes chip {
+    0% {
+      opacity: 0;
+      transform: scale(0.7) rotate(-6deg);
+    }
+    6% {
+      opacity: 1;
+      transform: scale(1.06) rotate(-2deg);
+    }
+    12%,
+    80% {
+      opacity: 1;
+      transform: scale(1) rotate(-2deg);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1) rotate(-2deg);
+    }
+  }
+
+  @keyframes nudge {
+    0%,
+    30%,
+    100% {
+      transform: rotate(0deg);
+    }
+    8% {
+      transform: rotate(-4deg) scale(1.06);
+    }
+    18% {
+      transform: rotate(3deg) scale(1.04);
+    }
+  }
+}

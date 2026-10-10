@@ -1,0 +1,42 @@
+import { palette } from '../../shared'
+
+/** Game colours on top of the shared palette. */
+export const colors = {
+  bean: palette.brown,
+  beanDark: '#5e3615',
+  beanSwollen: '#c49a6c',
+  beanShine: '#f3d9b1',
+  beanStrain: '#e8590c',
+  sky: '#d8ecff',
+  /** The hill's grey rainy sky. */
+  rainSky: '#c9d3dd',
+  grass: '#9fcf7f',
+  road: '#cfc8b8',
+  roadDark: '#b5ad9b',
+  paving: '#e6dfcf',
+  brick: '#c9744f',
+  brickDark: '#a85a3c',
+  mud: '#7a5230',
+  river: palette.water,
+  potRed: palette.red,
+  potShade: '#a51d1d',
+  enamel: '#fffaf0',
+  jumper: palette.blue,
+  skin: '#ffe3c4',
+  glow: 'rgba(250, 82, 82, 0.55)',
+  wall: '#fff3bf',
+  hallWall: '#e7dcc8',
+  ceiling: '#f3e6c9',
+  floor: '#e9ecef',
+  floorDark: '#ced4da',
+  wood: '#b08155',
+  woodDark: '#7f5539',
+  grassDark: '#74b85a',
+  gravel: '#ddd3bd',
+  hole: '#3d3a36',
+  kerbStone: '#adb5bd',
+  awningRed: '#ff8787',
+  awningGreen: '#8ce99a',
+  riverDeep: '#4dabf7',
+  leaf: '#69db7c'
+} as const
